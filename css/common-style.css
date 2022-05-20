@@ -1,0 +1,179 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Jura:wght@300&family=Orbitron&family=Questrial&display=swap'); /*IMPORTING FONTS*/
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900,400italic,700italic,900italic');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap');
+
+* {
+  margin:0px;
+  padding:0px;
+}
+
+html,body {
+  width:100%;
+  height:100%;
+  position: fixed; 
+  overflow-y: scroll;
+  overflow:hidden;
+  cursor:url("../assets/image/cursor/cursor.gif"), auto;
+  user-select: none;
+}
+
+a {
+  cursor:url("../assets/image/cursor/cursor2.gif"), default;
+  text-decoration: none;
+}
+
+#musicboard {
+  height:3.906vw;
+  width:3.906vw;
+  position: absolute;
+  top: 0%;
+  right:0%;
+  border-radius: 0px 0px 0px 15px;
+  opacity: 0.5;
+  transition:1s;
+  animation-timing-function: ease-in-out;
+  overflow: hidden;
+  pointer-events:auto;
+}
+
+#musicboard:hover {
+  width: 5.208vw;
+  height:29.250vw;
+  opacity:1;
+}
+
+#musicboard:hover .cover{
+  width: 100%;
+  height:inherit;
+}
+
+#musicboard:hover #spotify{right: 0.781vw;transition-delay: 250ms;}
+#musicboard:hover #bandcamp{right: 0.781vw;transition-delay: 500ms;}
+#musicboard:hover #soundcloud{right: 0.781vw;transition-delay: 750ms;}
+#musicboard:hover #youtube{right: 0.781vw;transition-delay: 1000ms;}
+#musicboard:hover #apple{right: 0.781vw;transition-delay: 1250ms}
+
+.cover{
+  width:100%;
+  height:inherit;
+  top:0;
+  box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5);
+  opacity:0.5;
+  transition:0.75s;
+  transition-delay: 50ms;
+  pointer-events:auto;
+}
+
+.cover:hover {
+  width: 100%;
+  height: inherit;
+  opacity:1;
+}
+
+.logosic {
+  width:3.906vw;
+  height:inherit;
+  right: -7.813vw;
+  position: fixed;
+  pointer-events:auto;
+  transition:0.75s;
+}
+
+#spotify {top:6.188vw;transition-delay: 430ms;}
+#spotify:hover {content: url("../assets/image/sic/spotifycolor.png");}
+
+#bandcamp {top:10.828vw;transition-delay: 330ms;}
+#bandcamp:hover {content: url("../assets/image/sic/bandcampcolor.png");}
+
+#soundcloud {top:15.469vw;transition-delay: 230ms;}
+#soundcloud:hover {content: url("../assets/image/sic/soundcloudcolor.png");}
+
+#youtube {top:19.547vw;transition-delay: 130ms;}
+#youtube:hover {content: url("../assets/image/sic/youtubecolor.png");}
+
+#apple {top:23.625vw;transition-delay: 30ms;}
+#apple:hover {content: url("../assets/image/sic/applemusiccolor.png");}
+
+.boxson{
+  width:100px;
+  height: 1.042vw;
+  bottom:0%;
+  position:absolute;
+  pointer-events: auto;
+}
+
+.nomson {
+  white-space: nowrap;
+  width:auto;
+  position:absolute;
+  color:rgb(255, 255, 255);
+  font-family: 'Jura', sans-serif;
+  font-size: 0.8vw;
+  animation: textslide linear infinite;
+}
+
+.boxson:hover .nomson{animation-play-state: paused;}
+
+@keyframes textslide{/*animation texte jukebox*/
+  from {
+    transform: translateX(-5%);
+  }
+  to {
+    transform: translateX(-56%);
+  }
+}
+
+.footer {
+  height:1.146vw !important;
+  width: 100%;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
+  opacity: 0.5 !important;
+  transition: 1s;
+  transition-delay: 250ms;
+}
+
+.footer:hover {
+  height: 11.042vw !important;
+  opacity: 0.75 !important;
+}
+
+.footer:hover .foothead{opacity: 0 !important;}
+.footer:hover .foottext{opacity: 1 !important;}
+.footer:hover .buttdown{opacity: 1;}
+
+.foothead{
+  transition-delay: 250ms;
+  transition: 1s;
+  opacity: 1;
+  opacity:initial;
+  text-align: center;
+  font-size:1vw;
+  font-family: 'Questrial', sans-serif;
+}
+
+.foottext{
+  position: relative;
+  top:2.5vh;
+  transition: 0.75s;
+  opacity: 0;
+  text-align: center;
+  font-size: 2vw;
+  font-family: 'Questrial', sans-serif;
+}
+
+.buttdown{
+  position:absolute;
+  bottom:5px;
+  left:5px;
+  transition: 1s;
+  opacity: 0;
+  text-align: center;
+  font-size: 1.5vw;
+  color:rgb(177, 177, 177);
+  cursor:url("../assets/image/cursor/cursor2.gif"), default;
+}

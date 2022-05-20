@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+@font-face {
+  font-family: csgoFont;
+  src:  url('../assets/font/cs_regular.ttf');}
+
+*{
+  cursor:url('../assets/image/cursor/cursor3.gif'), auto;
+}
+
+#musicboard {
+  background-color: rgba(37, 37, 37, 0.411);
+  border: 1px solid rgb(99, 99, 99);
+}
+
+.boxson{background-color:#0000007e;}
+.nomson{animation-duration: 2.5s;}
+
+.footer {background-color: rgba(46, 45, 45, 0.681);}
+.footer:hover {background-color: rgba(39, 38, 38, 0.719);}
+.foothead{color:#ffffff;}
+.foottext{color:#ffffff;}
+
+a {color:#000000;}
+
+
+#STOP{
+  position: absolute;
+  top: 0%;
+  left:0%;
+  font-family: 'Josefin Sans', sans-serif;
+  color:red;
+  /*mix-blend-mode: difference;*/
+}
+
+.flex-container{
+  z-index: 1;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  text-align:center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size:2vw;
+  color:#000000;
+}
+
+
+#prf{
+  border: 3px solid rgba(2, 0, 0, 0);
+  background: rgba(118, 118, 118, 0.376);
+  filter: blur(.7px);
+  -moz-filter: blur(.7px);
+  -webkit-filter: blur(.7px);}
+
+#succes{
+  border: 3px solid rgb(2, 0, 0);
+  background: rgba(78, 78, 78, 0.613);
+  backdrop-filter: blur(2px);
+  -moz-backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);}
+
+#brg{
+   border: 3px solid rgba(112, 112, 112, 0.473);
+   background: rgba(118, 118, 118, 0.329);}
+
+#strengh{
+  border: 3px solid rgba(112, 112, 112, 0.473);
+  background: rgba(118, 118, 118, 0.329);}
+
+#weapons-wrapper{
+  border: 3px solid rgba(255, 255, 255, 0.735);
+  background: rgba(100, 100, 100, 0.579);
+  backdrop-filter: blur(3px);
+  -moz-backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#wpst{
+   border: 3px solid rgba(112, 112, 112, 0.473);
+   background: rgba(118, 118, 118, 0.329);}
+
+#mvp{
+   border: 3px solid rgba(112, 112, 112, 0.473);
+   background: rgba(118, 118, 118, 0.329);}
+
+#maps{
+   border: 3px solid rgba(112, 112, 112, 0);
+   background: rgba(118, 118, 118, 0);}
+
+/*D E B O G G A G E DECOMMENTEZ POUR VOIR LES BONDARIES DE TOUS LES FLEX-CHILDS*/
+/*
+#flex-container-left{
+  border: 3px solid rgba(0, 217, 255, 0.473);
+  background: rgba(64, 224, 208, 0.329);
+}
+
+#prf{
+  border: 3px solid rgba(255, 0, 0, 0.473);
+  background: rgba(224, 64, 64, 0.329);}
+
+#succes{
+  border: 3px solid rgba(0, 26, 255, 0.473);
+  background: rgba(64, 67, 224, 0.329);}
+
+#brg{
+  border: 3px solid rgba(255, 230, 0, 0.473);
+  background: rgba(224, 208, 64, 0.329);}
+
+#flex-container-middle{
+  border: 3px solid rgba(0, 255, 13, 0.473);
+  background: rgba(64, 224, 77, 0.329);}
+
+#strengh{
+  border: 3px solid rgba(255, 0, 0, 0.473);
+  background: rgba(224, 64, 64, 0.329);}
+
+#weapons-wrapper{
+  border: 3px solid rgba(0, 26, 255, 0.473);
+  background: rgba(64, 67, 224, 0.329);}
+
+#wpst{
+  border: 3px solid rgba(255, 230, 0, 0.473);
+  background: rgba(224, 208, 64, 0.329);}
+                      
+#flex-container-right{
+  border: 3px solid rgba(255, 0, 0, 0.473);
+  background: rgba(255, 68, 0, 0.329);}  
+
+#mvp{
+  border: 3px solid rgba(255, 0, 0, 0.473);
+  background: rgba(224, 64, 64, 0.329);}
+
+#maps{
+  border: 3px solid rgba(0, 26, 255, 0.473);
+  background: rgba(64, 67, 224, 0.329);}
+*/
+
+
+#prf{
+  height: 200px;
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2.5vw;
+}
+
+
+#succes{
+  width:90%;
+  height: 28.125vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.253) rgba(0, 0, 0, 0);
+  /*width:150px;height:150px;line-height:3em;overflow:auto;padding:5px;*/
+}
+
+.prc{
+  height: 4vw;
+  background-color:rgba(255, 0, 0, 0.664);
+  float:left;
+  z-index: -1;
+  position:absolute;
+
+}
+
+.achv{
+  height:4vw;
+  background-color: rgba(255, 255, 255, 0.329);
+  padding:0.25vw;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  filter: grayscale(100%);
+  transition:0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.achv:hover{
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+
+.achv:hover .ach-title{
+  color: rgba(0, 0, 0, 0.767);
+}
+
+.achv:hover .ach-desc{
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.ach-title{
+  font-size:1vw;
+  float: left;
+  padding: 5px;
+  color:rgba(255, 255, 255, 0.829);
+  transition:0.5s;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+}
+
+.ach-desc{
+  padding: 5px;
+  font-size:0.75vw;
+  width: 80%;
+  top: 40%;
+  position: absolute;
+  text-align:left;
+  color:rgba(0, 0, 0, 0.767);
+  transition:0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.achv-img{
+  width: 4vw;
+  height: 4vw;
+  float: right;
+}
+
+#sep{
+  background-color:rgba(255, 255, 255, 0.575);
+  width: 100%;
+  height: 0.5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+
+
+
+
+
+/*ACHIEVEMENT GLASS BREAK*/
+
+#brg{
+  height: 90px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 3vh;
+}
+
+#tasimg{
+  content:url("../assets/image/gear/icon-taser.png");
+  height: 3vh;
+  width: auto;
+  float: right;
+  transition-duration: 1s;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#tasimg:hover{
+  content:url("../assets/image/gear/logo_taser.png");
+  height: 10vh;
+}
+
+/*Strengh*/
+#strengh{
+  height: 190px;
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.7vw;
+}
+
+
+/*WEAPONS*/
+#weapons{
+  margin: 0 auto;
+  position: relative;
+}
+
+#weapons-wrapper{
+  height: 560px;
+  overflow-y: scroll;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.253) rgba(0, 0, 0, 0);
+}
+
+#topwpn{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  background:#25252560;
+  text-align: center;
+  align-items: center;
+}
+
+#caseweapon{
+  height:15vh;
+  width:100%;
+  display: flex;
+  background-color: rgba(39, 0, 0, 0);
+}
+
+#backwpn{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 120%;
+  height:16vh;
+  width:28vw;
+  z-index: -5;
+  position:absolute;
+  filter: blur(1.5px) grayscale(60%);
+  -webkit-filter: blur(1.5px) grayscale(60%);
+}
+
+
+#boxwpn{
+  width:40%;
+  margin-left:0.7vw;
+  background-color: rgba(3, 190, 128, 0);
+  font-family: csgoFont, sans-serif;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.logowpn{
+  margin-top: 0.7vh;
+}
+
+.textwpn{
+  font-size: 1vw;
+}
+
+#prixwpn{
+  color: rgba(40, 202, 48, 0.534);
+  float:right;
+  top:0;
+}
+
+#dmgwpn{
+  color: rgba(255, 0, 0, 0.616);
+  float:left;
+}
+
+.killswpn{
+  font-family: csgoFont, sans-serif;
+  font-size: 5vh;
+  position: absolute;
+  text-align: center;
+  align-self: center;
+  left:35%;
+
+}
+
+/*GRAPHIQUE-WEAPONS*/
+.cercle-svg {
+  display: block;
+  float: right;
+  margin: 5px;
+  max-height: 100%;
+  stroke: red;
+  transition:0.5s;
+  filter:grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.cercle-svg:hover{
+  filter:grayscale(0%);
+  -webkit-filter: grayscale(0%);
+}
+
+.cercle-bg {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 3.8;
+}
+
+.cercle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: butt;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.pourcentage {
+  fill: #666;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1vh;
+  text-anchor: middle;
+  stroke:none;
+}
+
+
+#wpst{
+  height: 5.729vw;
+  width:100%;
+  position: relative;
+}
+
+#txtcontainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5.729vw;
+}
+
+#gearwd{width:100%;}
+
+#backgear{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100%;
+  height:100%;
+  width:20%;
+  z-index: -1;
+  position:absolute;
+  filter: blur(.5px) grayscale(20%);
+  -webkit-filter: blur(.5px) grayscale(20%);
+  animation:mvmt 3s infinite ease-in-out;
+  animation-play-state: paused;
+}
+
+#wpst:hover #backgear {
+  animation-play-state: running;
+}
+
+@keyframes mvmt{
+  0%{
+    background-size: auto 80%;
+  }
+  50%{background-size: auto 110%;}
+  100%{
+    background-size: auto 80%;
+  }
+}
+
+
+#separvabs{
+  position:absolute;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  border-right: 1px solid #00000093;
+  border-left: 1px solid #00000093;
+}
+
+/*MVP*/
+
+#mvp{
+  height: 10.417vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: stretch;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#sepv{
+  content: "";
+  display: inline-block;
+  width: 0px;
+  height: 100%;
+  border-right: 1px solid #00000093;
+  border-left: 1px solid #00000093;
+}
+
+.txtb{
+  display:flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  font-family: csgoFont, sans-serif;
+  font-size: 1.2vw;
+  margin-right: auto;
+  margin-left: auto;
+  color:rgb(78, 82, 75);
+}
+
+#first-word{
+  color:rgb(0, 0, 0); 
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+/*MAPS*/
+
+#maps{
+  height: 62.5vh;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  position: relative;
+}
+
+.map{
+  width:30%;
+  background: rgba(34, 34, 34, 0.601);
+  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  font-size: 1.7vw;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#imap{
+  height:5.208vw;
+  width:auto;
+}
+
+#mapswitch{
+  position: absolute;
+  right: 0;
+  height: 3vh;
+  width: auto;
+}
+
+.flex-subcontainer{
+  width: 30%;
+  height: 93%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-child{
+  width: 98%;
+}
+
+
+
+
+#mouse-circle{
+  z-index: -2;
+  position:absolute;
+  width: 128px;
+  height: 128px;
+  margin: -64px 0 0 -64px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.c1{
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  left:var(--x);
+  top:var(--y);
+}
+
+.c2{
+  mix-blend-mode: difference;
+  background: rgb(255,255,255);
+  left:var(--x);
+  top:var(--y);
+  /*box-shadow: 0px 0px 0px 8px #00000000, 0px 0px 0px 16px #DADDDA, 0px 0px 0px 24px #B2B5B2, 0px 0px 0px 31px #828482, 0px 0px 0px 39px #4B4C4B, 5px 5px 15px 5px rgb(0, 0, 0);
+  box-shadow: 11px -9px 10px 0px #ff0000, 20px -15px 10px 0px #1eff00, 29px -21px 10px 0px #1900ff, 5px 1px 10px 5px rgba(255,0,0,0);
+  background: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(0,165,223,1) 0%, rgba(223,19,44,1) 100%,rgba(0,152,71,1) 50%);
+ */
+}
+
+html,body {
+  background-image:url("../assets/image/backgrounds/backgroundtrippy.gif");
+  background-size: 50% 50%;
+  background-color:#000000;
+  color:#000000;
+}

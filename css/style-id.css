@@ -1,0 +1,88 @@
+html,body {
+  background-image:url("../assets/image/backgrounds/O.gif");
+  background-color:#dffffc;
+  color:#000000;
+  animation:back infinite 5s linear;
+}
+
+@keyframes back {
+  0%, 100%{
+    background-color:#ffdfdf;
+  }
+  50%{
+    background-color:#dffffc;
+  }
+}
+
+a {
+  color:#000000;
+}
+
+#musicboard {
+  background-color: rgba(19, 38, 73, 0.411);
+  border: 1px solid rgb(85, 159, 255);
+}
+
+#musicboard:hover {
+  height:37.75%;
+}
+
+#spotify {transition-delay: 230ms;}
+#youtube {top:19.25%;transition-delay: 130ms;}
+#apple {top: 27.5%;transition-delay: 30ms;}
+
+#musicboard:hover #youtube{transition-delay: 500ms;}
+#musicboard:hover #apple{transition-delay: 750ms;}
+
+.boxson{background-color:#041a3a7e;}
+.nomson{animation-duration: 2s;}
+
+.flex-container {
+  width:100%;
+  display: flex;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  width: 25.5ch;
+  letter-spacing: 0.5ch;
+  height:85px;
+  color: #011a32;
+	font:4.5vw droid sans mono, consolas, monospace;
+  font-weight: 900;
+  box-sizing:border-box; 
+  background-color: #fd080800;
+  border-style: hidden;
+  background: repeating-linear-gradient(90deg, rgba(255, 0, 0, 0) 0, rgb(0, 0, 0) 0.5ch, rgba(255, 0, 0, 0) 1ch, transparent 0, transparent 1.5ch) 0 100%/ 25ch 2px no-repeat;
+  animation: text-sheesh 1.5s ease-in-out infinite;
+  line-height: 1;
+  outline: none;
+}
+
+@keyframes text-sheesh {
+  0%,80% {transform: translateY(0);
+    text-shadow:0 0 0 #0c2ffb,0 0 0 #2cfcfd,0 0 0 #fb203b,0 0 0 #fefc4b;
+  }
+  20% {transform: translateY(-1em);
+    text-shadow:0 0.125em 0 #0c2ffb,0 0.25em 0 #2cfcfd,0 -0.125em 0 #fb203b,0 -0.25em 0 #fefc4b;
+  }
+  40% {transform: translateY(0.5em);
+    text-shadow:0 -0.0625em 0 #0c2ffb,0 -0.125em 0 #2cfcfd,0 0.0625em 0 #fb203b,0 0.125em 0 #fefc4b;
+  }
+ 60% {transform: translateY(-0.25em);
+    text-shadow:0 0.03125em 0 #0c2ffb,0 0.0625em 0 #2cfcfd,0 -0.03125em 0 #fb203b,0 -0.0625em 0 #fefc4b;
+  }
+}
+
+::placeholder{
+  color: #011a32;
+  opacity: 0.85;
+  font: 1.58ch 'Raleway', sans-serif;
+}
+
+.footer {background-color: rgba(5, 31, 61, 0.308);}
+.footer:hover {background-color: rgba(5, 31, 61, 0.733);}
+.foothead{color:#005d81;}
+.foottext{color:#0e819e;}
