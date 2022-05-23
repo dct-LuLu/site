@@ -49,7 +49,8 @@ function copy(){
 /*
 function getJsonFromAPI(steamID64)
   { https://partner.steam-api.com
-    let url = "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v1/?key=DA06ABFF73842F75B7EDD336D5701176&steamid="+steamID64+"&appid=730";
+    let croisle = "nan mais vrm crois le";
+    let url = "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v1/?key="+croisle+"&steamid="+steamID64+"&appid=730";
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onload = function() {
