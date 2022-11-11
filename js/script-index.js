@@ -1,9 +1,16 @@
-let j = document.getElementById("jbox")
-let m = document.getElementById("mbox")
-j.onclick = () => {ClickedChoice("jbox")};
-m.onclick = () => {ClickedChoice("mbox")};
-
 let clicked = true;
+
+//Fonction qui permet d'activer l'animation de choix sur la boite ou le click a été éffectué
+function animBox(box) {
+  document.getElementById(box).style.animation="choosen 4.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1 ";
+  document.getElementById("atitle").style.animation="gone 5s ease-out 1"
+  document.getElementById("jtitle").style.animation="gone 5s ease-out 1"
+  document.getElementById("mtitle").style.animation="gone 5s ease-out 1"
+  if (box==="jbox"){m.style.animation="gone 5s ease-out 1"}
+  else{j.style.animation="gone 5s ease-out 1"}
+  FooterInactif()
+}
+
 function ClickedChoice(b) {
   if (clicked) {//Permet de ne pas clicker sur plusieurs choix
     console.log("Choix de la boîte "+b);
@@ -19,6 +26,45 @@ function ClickedChoice(b) {
     window.setTimeout('window.open("html/id.html","_self")',3500);
     //page2 window.onload=alert(localStorage.getItem("storageChoice")); 
   }
+}
+
+let j = document.getElementById("jbox")
+let m = document.getElementById("mbox")
+j.onclick = () => {ClickedChoice("jbox")};
+m.onclick = () => {ClickedChoice("mbox")};
+
+//document.getElementById('ifoottext').mouseover(function(event){
+//  console.log("ooo")
+//  event.target.innerHTML="Bienvenue dans SPORTS STATS&#8482; veuillez choisir entre l'analyse d'un seul joueur ou d'un match entier";})
+//Fonction qui permet de créer un effet de perspective sur la boite, prends en argument la boite sur laquelle est la souris, et l'angle x et y qu'elle doit prendre
+function mooveBox(box,x,y) {
+  document.getElementById(box).style.cssText = `
+  box-shadow:-2px 0 0 5px rgba(255, 0, 0, 0.473);
+  text-shadow:-6px 3px 2px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition:0s;
+  transform:perspective(500px) rotateY(${y}deg) rotateX(${x}deg);`;
+  
+  var dict = {
+  "jbox": `Choisissez "JOUEUR" pour analyser toutes les statistiques d'un unique joueur`,
+  "mbox": `Choisisser "MATCH" pour analyser les statistiques des derniers matchs d'un unique joueur`};
+  document.getElementById('ifoothead').style.cssText =`opacity:0;`;
+  document.getElementById('ifoottext').style.cssText =`opacity:1;`;
+  document.getElementById('ifoottext').innerHTML=dict[box];
+  document.getElementById('ifooter').style.cssText = `
+  height: 11.042vw !important;
+  opacity: 0.75 !important;
+  background-color: rgba(61, 5, 5, 0.733) !important;`;
+}
+
+//Fonction qui prends en argument l'id de la boite qui doit être remis en position normale
+function defaultBox(box) {
+  document.getElementById(box).style.cssText =`
+  opacity:0.75;
+  transform:perspective(500px) rotateY(0deg) rotateX(0deg);
+  transition: 0.3s;`;
+  document.getElementById('ifoothead').style.cssText =`opacity:1;`;
+  FooterInactif()
 }
 
 onmousemove = function(e){
@@ -64,57 +110,12 @@ document.getElementById("ifooter").addEventListener("mouseover",function(){
   document.getElementById("ifoottext").innerHTML="Bienvenue dans SPORTS STATS&#8482; veuillez choisir entre l'analyse d'un seul joueur ou d'un match entier";
 });
 
-//document.getElementById('ifoottext').mouseover(function(event){
-//  console.log("ooo")
-//  event.target.innerHTML="Bienvenue dans SPORTS STATS&#8482; veuillez choisir entre l'analyse d'un seul joueur ou d'un match entier";})
-//Fonction qui permet de créer un effet de perspective sur la boite, prends en argument la boite sur laquelle est la souris, et l'angle x et y qu'elle doit prendre
-function mooveBox(box,x,y) {
-  document.getElementById(box).style.cssText = `
-  box-shadow:-2px 0 0 5px rgba(255, 0, 0, 0.473);
-  text-shadow:-6px 3px 2px rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  transition:0s;
-  transform:perspective(500px) rotateY(${y}deg) rotateX(${x}deg);`;
-  
-  var dict = {
-  "jbox": `Choisissez "JOUEUR" pour analyser toutes les statistiques d'un unique joueur`,
-  "mbox": `Choisisser "MATCH" pour analyser les statistiques des derniers matchs d'un unique joueur`};
-  document.getElementById('ifoothead').style.cssText =`opacity:0;`;
-  document.getElementById('ifoottext').style.cssText =`opacity:1;`;
-  document.getElementById('ifoottext').innerHTML=dict[box];
-  document.getElementById('ifooter').style.cssText = `
-  height: 11.042vw !important;
-  opacity: 0.75 !important;
-  background-color: rgba(61, 5, 5, 0.733) !important;`;
-}
-
 function FooterInactif(){
   document.getElementById('ifoottext').style.cssText =`opacity:0;`;
   document.getElementById('ifooter').style.cssText = `
   height:1.146vw;
   opacity:0.5;
   background-color: rgba(61, 5, 5, 0.308);`;
-}
-
-//Fonction qui prends en argument l'id de la boite qui doit être remis en position normale
-function defaultBox(box) {
-  document.getElementById(box).style.cssText =`
-  opacity:0.75;
-  transform:perspective(500px) rotateY(0deg) rotateX(0deg);
-  transition: 0.3s;`;
-  document.getElementById('ifoothead').style.cssText =`opacity:1;`;
-  FooterInactif()
-}
-
-//Fonction qui permet d'activer l'animation de choix sur la boite ou le click a été éffectué
-function animBox(box) {
-  document.getElementById(box).style.animation="choosen 4.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1 ";
-  document.getElementById("atitle").style.animation="gone 5s ease-out 1"
-  document.getElementById("jtitle").style.animation="gone 5s ease-out 1"
-  document.getElementById("mtitle").style.animation="gone 5s ease-out 1"
-  if (box==="jbox"){m.style.animation="gone 5s ease-out 1"}
-  else{j.style.animation="gone 5s ease-out 1"}
-  FooterInactif()
 }
 
 document.getElementById("quitbutton").onclick = function(){window.open("about:blank", "_self","")};//FONCTION BOUTON QUITTER (PUISQU'IL EST INUTILE ET IMPOSSIBLE DE CREER UN BOUTON "QUITTER" SUR UNE PAGE WEB, CE BOUTON CHARGE JUSTE UNE PAGE VIDE SOIT UNE PAGE about:blank)

@@ -7,10 +7,7 @@ alert("Storage choice"+storageChoice);*/
     e.preventDefault();
   }
 };*/
-window.onload = function() {//EMPECHE LE FORM DE RELOAD LA PAGE
-  var form = document.querySelector("form");
-  form.onsubmit = submitted.bind(form);
-}
+
 
 document.getElementById("focus").onclick = function() {//Permet d'avoir le focus meme en cliquant à coté de la zone de saisie
   document.getElementById("steamid").focus();
@@ -44,6 +41,11 @@ function submitted(event) {//SI LE FORM EST SUBMIT:
 function copy(){
   navigator.clipboard.writeText("76561198089925382");
   alert("Copié dans le presse papier");//FAIRE UN SYSTEME DE NOTIFICATION
+}
+
+window.onload = function() {//EMPECHE LE FORM DE RELOAD LA PAGE
+  var form = document.querySelector("form");
+  form.onsubmit = submitted.bind(form);
 }
 
 /*
