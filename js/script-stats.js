@@ -140,7 +140,7 @@ function load(){//onload
       complet.innerHTML="Achievements: "+Object.values(obj.playerstats.achievements).length+"/"+167 +" ("+Math.trunc(Object.values(obj.playerstats.achievements).length/167*100)+"%)";
       document.getElementById("fait").appendChild(complet);
 
-      for (let i in achievement)
+      for (const i of Object.keys(achievement))
       {
         //Création du cadre d'achievement
         let achv=document.createElement("div");
@@ -239,7 +239,7 @@ function load(){//onload
       let hitslst=verifFormat('total_hits_',weapons)
       var killslst=verifFormat('total_kills_',weapons)
       var preclst=[]
-      for (let i in weapons){
+      for (const i of Object.keys(weapons)){
         preclst.push((hitslst[i]/shotslst[i])*100)
       }
       var list_list=[wpprix,wpdg,killslst,preclst]
@@ -279,7 +279,7 @@ function load(){//onload
         var topwpn=document.createElement("div");
         topwpn.setAttribute('id','topwpn');
         document.getElementById('weapons').appendChild(topwpn);
-        for (let j in BTN_LST){//on crée les 4 boutons de tri
+        for (const j of Object.keys(BTN_LST)){//on crée les 4 boutons de tri
           btnwdg[j]=document.createElement("p");//on fait les paragraphes
           btnwdg[j].innerHTML=BTN_NOMS[j];//on écrit les noms des btn
           btnwdg[j].setAttribute('id',BTN_LST[j]);//on leur attribue une id
@@ -287,7 +287,7 @@ function load(){//onload
           document.getElementById('topwpn').appendChild(btnwdg[j]);//on ajoute les btn
         }
 
-        for (let j in weapons){
+        for (const j of Object.keys(weapons)){
           i=listeIndex[j];
           var caseweapon=document.createElement("div");
           caseweapon.setAttribute('id','caseweapon');
@@ -311,7 +311,7 @@ function load(){//onload
             </svg>
           </div>`;
           if (j!==weapons.length-1){//Pour qu'il n'y ait pas de séparateur en bas
-            var separ=document.createElement('div');
+            let separ=document.createElement('div');
             separ.setAttribute('id','sep');
             document.getElementById('weapons').appendChild(separ);}
           }
@@ -331,10 +331,10 @@ function load(){//onload
 
 
       //wpst 
-      const backgear=["ct_knife.png","t_knife.png","hegrenade.png","incgrenade.png","molotov.png"]
-      var backgearwd=[0,0,0,0,0]
-      const prcbackgear=[0,15,40,65,80]
-      for (let j in backgear){
+      const backgear=["ct_knife.png","t_knife.png","hegrenade.png","incgrenade.png","molotov.png"],
+      prcbackgear=[0,15,40,65,80];
+      let backgearwd=[0,0,0,0,0]
+      for (const j of Object.keys(backgear)){
         backgearwd[j]=document.createElement("div")
         backgearwd[j].setAttribute('id','backgear');
         backgearwd[j].style.backgroundImage=`url("../assets/image/gear/${backgear[j]}")`;
@@ -342,20 +342,20 @@ function load(){//onload
         document.getElementById('wpst-wrapper').appendChild(backgearwd[j])
         }
 
-      var sp=[0,0]
+      let sp=[0,0]
       const prcsp=[35,65]
-      for (let j in sp){
+      for (const j of Object.keys(sp)){
         sp[j]=document.createElement('div');
         sp[j].setAttribute('id','separvabs');
         sp[j].style.left=`${prcsp[j]}%`;
         document.getElementById('wpst-wrapper').appendChild(sp[j]);}
 
-      var gearwd=[0,0,0]
-      var gearlst=verifFormat("",["total_kills_knife","total_kills_hegrenade","total_kills_molotov"])
-      var txtcontainer=document.createElement('div');
+      let gearwd=[0,0,0],
+      gearlst=verifFormat("",["total_kills_knife","total_kills_hegrenade","total_kills_molotov"]),
+      txtcontainer=document.createElement('div');
       txtcontainer.setAttribute('id','txtcontainer');
       document.getElementById('wpst-wrapper').appendChild(txtcontainer);
-      for (let j in gearwd) {
+      for (const j of Object.keys(gearwd)) {
         gearwd[j]=document.createElement("p")
         gearwd[j].setAttribute('id','gearwd');
         gearwd[j].innerHTML=`${gearlst[j]}`;
@@ -367,15 +367,15 @@ function load(){//onload
 
 
       //MVP
-      var statss=verifFormat("",['total_mvps','total_money_earned','total_broken_windows','total_planted_bombs','total_defused_bombs','total_rescued_hostages'])
-      var statsdesc=['MVPS','Gains totaux','Vitres cassés','Bombes plantées','Bombes désamorcées','Otages sauvés']
-      var staswdg=[0,0,0,0,0,0]//Une liste pour les objets html qui vont être crées
-      for (let i in statss) {
+      let statss=verifFormat("",['total_mvps','total_money_earned','total_broken_windows','total_planted_bombs','total_defused_bombs','total_rescued_hostages']),
+      statsdesc=['MVPS','Gains totaux','Vitres cassés','Bombes plantées','Bombes désamorcées','Otages sauvés'],
+      staswdg=[0,0,0,0,0,0];//Une liste pour les objets html qui vont être crées
+      for (const i of Object.keys(statss)) {
         staswdg[i]=document.createElement('p');
         staswdg[i].setAttribute('class','txtstats');
         staswdg[i].innerHTML="<span id='first-word'>"+statsdesc[i]+": </span>"+[statss[i]]
         if(i==0){
-          var gtxtb=document.createElement('div');
+          let gtxtb=document.createElement('div');
           gtxtb.setAttribute('id','gtxtb');
           gtxtb.setAttribute('class','txtb');
           document.getElementById('mvp').appendChild(gtxtb);
@@ -386,10 +386,10 @@ function load(){//onload
 
         }
         if (i==3)
-        {var separv=document.createElement('div');
+        {let separv=document.createElement('div');
         separv.setAttribute('id','sepv');
         document.getElementById('mvp').appendChild(separv);
-        var dtxtb=document.createElement('div');
+        let dtxtb=document.createElement('div');
         dtxtb.setAttribute('id','dtxtb');
         dtxtb.setAttribute('class','txtb');
         document.getElementById('mvp').appendChild(dtxtb);}
@@ -414,7 +414,7 @@ function load(){//onload
       //Permet de trier les maps et de trier la liste des noms dans le meme ordre pour que les données soient bien affichées
       function triMap(type,listeNoms){
         let listeVar=verifFormat(type,listeNoms)
-        for (let i in listeNoms) {
+        for (const i of Object.keys(listeNoms)) {
           let dejaTrie=true;
           for (let j=0;j<(listeNoms.length-i-1);j++){
             if(listeVar[j] > listeVar[j+1]){[listeVar[j],listeVar[j+1],listeNoms[j],listeNoms[j+1],dejaTrie]=[listeVar[j+1],listeVar[j],listeNoms[j+1],listeNoms[j],false];}

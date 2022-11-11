@@ -45,7 +45,7 @@ function mooveBox(box,x,y) {
   transition:0s;
   transform:perspective(500px) rotateY(${y}deg) rotateX(${x}deg);`;
   
-  var dict = {
+  let dict = {
   "jbox": `Choisissez "JOUEUR" pour analyser toutes les statistiques d'un unique joueur`,
   "mbox": `Choisisser "MATCH" pour analyser les statistiques des derniers matchs d'un unique joueur`};
   document.getElementById('ifoothead').style.cssText =`opacity:0;`;

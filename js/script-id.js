@@ -44,7 +44,7 @@ function copy(){
 }
 
 window.onload = function() {//EMPECHE LE FORM DE RELOAD LA PAGE
-  var form = document.querySelector("form");
+  let form = document.querySelector("form");
   form.onsubmit = submitted.bind(form);
 }
 
