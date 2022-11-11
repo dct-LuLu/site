@@ -288,7 +288,7 @@ function load(){//onload
         }
 
         for (const j of Object.keys(weapons)){
-          i=listeIndex[j];
+          let i=listeIndex[j];
           var caseweapon=document.createElement("div");
           caseweapon.setAttribute('id','caseweapon');
           document.getElementById('weapons').appendChild(caseweapon);
