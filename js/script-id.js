@@ -20,7 +20,7 @@ function submitted(event) {//SI LE FORM EST SUBMIT:
   var y = 'id';
   sessionStorage.setItem(y,x);
   sessionStorage.getItem(y);
-  console.log(x);
+  
 
   if (id.length===17 && !isNaN(id)) {
     /*FAIRE TESTSER SI ELLE EXISTE EN EXECUTANT UNE REQUETE PHP SERVER SIDE POUR UNIQUEMENT VERIFIER LA VALIDITé DE l'ID*/

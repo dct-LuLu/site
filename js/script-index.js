@@ -13,7 +13,7 @@ function animBox(box) {
 
 function ClickedChoice(b) {
   if (clicked) {//Permet de ne pas clicker sur plusieurs choix
-    console.log("Choix de la boîte "+b);
+    
     localStorage.setItem("storageChoice",b);
     clicked = false;
     //COMMENCER l'ANIMATION 
