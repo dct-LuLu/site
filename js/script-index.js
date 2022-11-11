@@ -112,7 +112,7 @@ function animBox(box) {
   document.getElementById("atitle").style.animation="gone 5s ease-out 1"
   document.getElementById("jtitle").style.animation="gone 5s ease-out 1"
   document.getElementById("mtitle").style.animation="gone 5s ease-out 1"
-  if (box=="jbox"){m.style.animation="gone 5s ease-out 1"}
+  if (box==="jbox"){m.style.animation="gone 5s ease-out 1"}
   else{j.style.animation="gone 5s ease-out 1"}
   FooterInactif()
 }

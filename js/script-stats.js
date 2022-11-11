@@ -7,12 +7,12 @@ function arrondir(float,vrg){return Math.trunc(float*Math.pow(10,vrg))/Math.pow(
 
 document.addEventListener('DOMContentLoaded', () => {
   let mousePosX = 0,
-    mousePosY = 0,
-    mouseCircle = document.getElementById('mouse-circle');
+    mousePosY = 0;
+    //mouseCircle = document.getElementById('mouse-circle');
 
-  document.onmousemove = (e) => {
-    mousePosX = e.pageX;
-    mousePosY = e.pageY;
+  document.onmousemove = (_) => {
+    mousePosX = _.pageX;
+    mousePosY = _.pageY;
   }
 
   let delay = 10,
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //Bouton pour desactiver le background
 var bg=true;
 document.getElementById("STOP").addEventListener('click',function(){
-  bg=!bg
+  bg= !bg
   if(!bg){document.body.style.backgroundImage = "none";}
   else{document.body.style.backgroundImage = 'url("../assets/image/backgrounds/backgroundtrippy.gif")';}
 })
@@ -1232,7 +1232,7 @@ function load(){
     console.log('Achievements: ',Object.values(obj.playerstats.achievements).length/167*100,'%');//POURCENTAGE D'ACHIEVEMENTS
 
     function verifFormat(type,listeNoms){
-      listeProtected=[]
+      let listeProtected=[]
       for (i in listeNoms){
         //Permet de handle les stats qui n'existent pas
         if(typeof obj.playerstats.stats[type+listeNoms[i]]!=='undefined'){listeProtected.push(obj.playerstats.stats[type+listeNoms[i]].value)}
@@ -1247,8 +1247,8 @@ function load(){
       if (nb>liste[0].length){nb=liste[0].length}//Permet à ce qu'il n'y ait pas de dépssement
       for (let i = 0; i<2;i++){
         for (let j = 0; j < nb; j++){
-          if (ordre=="croissant"){listeRetournee.push(liste[i][liste[i].length-(j+1)])}
-          else if(ordre=="dcroissant"){listeRetournee.push(liste[i][j])}
+          if (ordre==="croissant"){listeRetournee.push(liste[i][liste[i].length-(j+1)])}
+          else if(ordre==="dcroissant"){listeRetournee.push(liste[i][j])}
         }
       }
       return listeRetournee
@@ -1287,8 +1287,8 @@ function load(){
       document.getElementById('winr').innerHTML="Win ratio: "+arrondir((partstat[2]/partstat[3])*100,2)+'%';
       document.getElementById('roundw').innerHTML=`${partstat[0]} rounds`;
       document.getElementById('tps').innerHTML=`${arrondir(partstat[1]/3600,0)} H`;
-      document.getElementById('prf').addEventListener('click',function(e){
-        click=!click
+      document.getElementById('prf').addEventListener('click',function(_){
+        click= !click
         tooltip(`<p style='font-size:1.5vw'>Le win ratio est calculé en fonction du nombres de parties compétitive classiques remportées sur le nombre joués, et ne comprends pas les égalités comme des parties gagnés
         <br>Le nombre de rounds représente le nombre de manches remportés en partie compétitive classiques
         <br>Le temps de jeu représente le temps d'heures passés en partie compétitive classiques uniquement</p>`,click);});
@@ -1341,8 +1341,8 @@ function load(){
         }
       }
 
-      document.getElementById('succes').addEventListener('click',function(e){
-        click=!click
+      document.getElementById('succes').addEventListener('click',function(_){
+        click= !click
         tooltip(`<p style='font-size:1.2vw'>Il y a 167 succès unique au total sur le jeu ils se débloquent en partie<br>
         Les achievements sont composé d'un titre, une description, une illustration et une barre en fond qui représente le pourcentage de réussite global de tous les joueurs<br>
         Les achievements se trouvant au dessus sont ceux débloqué par le joueur et ceux se trouvant en dessous du séparateur ne sont pas encoré débloqués par le joueur, les deux catégories sont triés par le pourcentage de réussite globale<br>Vous pouvez 
@@ -1372,8 +1372,8 @@ function load(){
       document.getElementById('brg').appendChild(tass);
       document.getElementById('brg').appendChild(tasimg);
 
-      document.getElementById('brg').addEventListener('click',function(e){
-        click=!click
+      document.getElementById('brg').addEventListener('click',function(_){
+        click= !click
         tooltip(`<p style='font-size:1.7vw'>Le taser est une arme unique étant plus de l'ordre de l'équipement<br>
         Le taser tue instantanément l'ennemi en un seul coup, mais la portée est minime et n'a qu'une seule charge!<br>
         Le taser est aussi surnommé Zeus x27, basé sur la divinité de l'éclair, zeus, le modèle est basé sur le taser M26</p>`,click);});
@@ -1385,8 +1385,8 @@ function load(){
       document.getElementById('hdsh') .innerHTML="Headshots ratio: "+arrondir((strenghstat[3]/strenghstat[5])*100,2)+'%';
       document.getElementById('prcss').innerHTML="Precision: "+arrondir((strenghstat[5]/strenghstat[4])*100,2)+'%';
       document.getElementById('ttdmg').innerHTML="Dégats totaux: "+strenghstat[2];
-      document.getElementById('strengh').addEventListener('click',function(e){
-        click=!click
+      document.getElementById('strengh').addEventListener('click',function(_){
+        click= !click
         tooltip(`<p style='font-size:1.5vw'>Le K/D représente le ratio du nombre de victime par mort
         <br>Le ratio de headshots correspond aux nombre de balles qui touchent la tête de l'ennemi sur toutes les balles qui touchent l'ennemi
         <br>La précision est le ration du nombre de balles qui touchent sur celles tirés<br>Les dégats totaux correspondent aux dégats infligés aux ennemis en partie compétitive classiques uniquement</p>`,click);});
@@ -1405,8 +1405,8 @@ function load(){
 
       function wsh(e){
         for (i in BTN_LST) {//on va comparer pour chaque boutons
-          if (e.target.id==BTN_LST[i]){//on regarde quel bouton a été appuyé
-            btnstatus[i]=!btnstatus[i];//on échange le statut du bouton
+          if (e.target.id===BTN_LST[i]){//on regarde quel bouton a été appuyé
+            btnstatus[i]= !btnstatus[i];//on échange le statut du bouton
             if (btnstatus[i]){//si le bouton est false on tri par ordre croissant:
               wee(tree(list_list[i]).reverse())
               document.getElementById(e.target.id).style.color='rgba(25, 255, 0, 0.473)';
@@ -1473,14 +1473,14 @@ function load(){
               <text x="${szgrph/2}" y="${szgrph-rad}" class="pourcentage">${arrondir(preclst[i],1)}%</text>
             </svg>
           </div>`;
-          if (j!=weapons.length-1){//Pour qu'il n'y ait pas de séparateur en bas
+          if (j!==weapons.length-1){//Pour qu'il n'y ait pas de séparateur en bas
             var separ=document.createElement('div');
             separ.setAttribute('id','sep');
             document.getElementById('weapons').appendChild(separ);}
           }
           document.getElementById('weapons').addEventListener('click',function(e){
-            if (e.target.id!=BTN_LST[0]&&e.target.id!=BTN_LST[1]&&e.target.id!=BTN_LST[2]&&e.target.id!=BTN_LST[3]){
-              click=!click
+            if (e.target.id!==BTN_LST[0]&&e.target.id!==BTN_LST[1]&&e.target.id!==BTN_LST[2]&&e.target.id!==BTN_LST[3]){
+              click= !click
               tooltip(`<p style='font-size:1.4vw'>Le prix correspond au prix de l'arme en partie compétitive classique<br>DGT corresponds aux dégats moyens pour une seule balle, la moyenne est
               calculé graçe aux dégats de chaque parties du corp<br>Les kills correspondent aux nombres de victimes fait avec l'arme depuis le début du jeu<br>HDR corresponds à la précision
               il est calculé en fonction du nombre de tirs fait avec l'armes et aux nombres de touches<br>Vous pouvez 
@@ -1520,8 +1520,8 @@ function load(){
         gearwd[j].innerHTML=`${gearlst[j]}`;
         document.getElementById('txtcontainer').appendChild(gearwd[j]);
       }
-      document.getElementById('wpst').addEventListener('click',function(e){
-        click=!click
+      document.getElementById('wpst').addEventListener('click',function(_){
+        click= !click
         tooltip(`<p style='font-size:2vw'>La première case correspond aux nombre de kills au couteau (C et CT)<br>Le deuxième cadre correspond aux nombre d'éliminations à la HE (grenade explosive)<br>Et le troisième corresponds aux nombres d'énnemis immolés par le feu</p>`,click);})
 
 
@@ -1533,7 +1533,7 @@ function load(){
         staswdg[i]=document.createElement('p');
         staswdg[i].setAttribute('class','txtstats');
         staswdg[i].innerHTML="<span id='first-word'>"+statsdesc[i]+": </span>"+[statss[i]]
-        if(i==0){
+        if(i===0){
           var gtxtb=document.createElement('div');
           gtxtb.setAttribute('id','gtxtb');
           gtxtb.setAttribute('class','txtb');
@@ -1544,7 +1544,7 @@ function load(){
           gtxtb.appendChild(staswdg[i]);
 
         }
-        if (i==3)
+        if (i===3)
         {var separv=document.createElement('div');
         separv.setAttribute('id','sepv');
         document.getElementById('mvp').appendChild(separv);
@@ -1559,15 +1559,15 @@ function load(){
       }
 
       document.getElementById('mvp').addEventListener('click',function(e){
-        if (e.target.id!=BTN_LST[0]&&e.target.id!=BTN_LST[1]&&e.target.id!=BTN_LST[2]&&e.target.id!=BTN_LST[3]){
-          click=!click
+        if (e.target.id!==BTN_LST[0]&&e.target.id!==BTN_LST[1]&&e.target.id!==BTN_LST[2]&&e.target.id!==BTN_LST[3]){
+          click= !click
           tooltip(`<p style='font-size:2vw'>Les MVP (Most Valuable Player) sont attribué au meilleur joueur de la manche<br>Les gains totaux représentent le montant total d'argent gagné depuis le début par le joueur</p>`,click);}});
 
 
       //MAPS 
       document.getElementById('maps').addEventListener('click',function(e){
-        click=!click;
-        if (e.target.id!='mapswitch'){//Permet à ce que le tooltip ne s'affiche pas lorsqu'on change l'ordre des maps
+        click= !click;
+        if (e.target.id!=='mapswitch'){//Permet à ce que le tooltip ne s'affiche pas lorsqu'on change l'ordre des maps
           tooltip("<p style='font-size:1.5vw'>Le nombre de wins correspond aux nombres de parties entières remportées<br>Le nombre de rounds correspond aux nombres de manches joués, il y a miniumum 15 manches par parties et maximum 30<br>Le win rate est le pourcentage de parties remportées par rapport aux nombre de parties joués<br>Vous pouvez consulter le <a href='https://developer.valvesoftware.com/wiki/List_of_CS:GO_Maps' target='_blank'>wiki officiel</a> pour plus de renseignement sur les maps</p>",click);}});
       
       //Permet de trier les maps et de trier la liste des noms dans le meme ordre pour que les données soient bien affichées
@@ -1585,9 +1585,8 @@ function load(){
 
       croissant=true;
       MapsAffichage()
-      document.getElementById('mapswitch').addEventListener('click', function(e) {//Bouton pour échanger l'ordre
-        console.log("yey")
-        croissant=!croissant
+      document.getElementById('mapswitch').addEventListener('click', function(_) {//Bouton pour échanger l'ordre
+        croissant= !croissant
         MapsAffichage()
       })
 

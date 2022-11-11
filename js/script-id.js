@@ -25,9 +25,9 @@ function submitted(event) {//SI LE FORM EST SUBMIT:
   sessionStorage.getItem(y);
   console.log(x);
 
-  if (id.length==17 && !isNaN(id)) {
+  if (id.length===17 && !isNaN(id)) {
     /*FAIRE TESTSER SI ELLE EXISTE EN EXECUTANT UNE REQUETE PHP SERVER SIDE POUR UNIQUEMENT VERIFIER LA VALIDITé DE l'ID*/
-    if (id=="76561198089925382"){
+    if (id==="76561198089925382"){
       window.open("../html/stats.html","_self");
     }
     else {
